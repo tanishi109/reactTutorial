@@ -2,19 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class App extends React.Component {
-  render() {
-    let txt = this.props.txt
-    return <h1>{txt}</h1>
+  constructor() {
+    super();
+    this.state = {
+      txt: 'this is state',
+      num: 0
+    }
   }
-}
-
-App.propTypes = {
-  txt: React.PropTypes.string,
-  num: React.PropTypes.number.isRequired
-}
-
-App.defaultProps = {
-  txt: "DEFAULT"
+  update(e) {
+    this.setState({txt: e.target.value})
+  }
+  render() {
+    return (
+      <div>
+        <input type="text" onChange={this.update.bind(this)} />
+        <h1>{this.state.txt}</h1>
+      </div>
+    )
+  }
 }
 
 export default App
