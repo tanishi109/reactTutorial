@@ -16,17 +16,19 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Widget txt={this.state.txt} update={this.update} />
+        <h1>{this.state.txt}</h1>
+        <Slider txt={this.state.txt} update={this.update} />
+        <Slider txt={this.state.txt} update={this.update} />
+        <Slider txt={this.state.txt} update={this.update} />
       </div>
     )
   }
 }
 
-const Widget = (props) => {
+const Slider = (props) => {
     return (
       <div>
-        <input type="text" onChange={props.update} />
-        <h1>{props.txt}</h1>
+        <input type="range" min="0" max="255" onChange={props.update} />
       </div>
     )
 }
